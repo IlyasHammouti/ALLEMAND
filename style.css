@@ -370,7 +370,8 @@ body.view-cards { overflow: hidden; }
 }
 .card-meta span { padding: 4px 10px; border-radius: 999px; background: var(--surface-2); }
 .front { font-size: 30px; font-weight: 700; color: var(--text); line-height: 1.2; letter-spacing: -0.6px; }
-.ph { font-size: 15px; color: var(--accent); margin-top: 8px; font-weight: 600; }
+.ph { font-size: 15px; color: var(--accent); margin-top: 8px; font-weight: 600; cursor: pointer; transition: filter .15s ease; display: inline-block; }
+.ph.blurred { filter: blur(6px); user-select: none; }
 .sep { width: 40px; height: 2px; background: var(--border); border-radius: 2px; margin: 22px 0; }
 .back { font-size: 20px; color: var(--text); line-height: 1.4; font-weight: 600; animation: fadeUp .28s ease both; }
 .note { font-size: 13px; color: var(--text-muted); margin-top: 12px; line-height: 1.5; max-width: 380px; }
