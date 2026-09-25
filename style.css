@@ -355,7 +355,7 @@ body.view-cards { overflow: hidden; }
   align-items: center;
   text-align: center;
   box-shadow: var(--shadow-card);
-  cursor: pointer;
+  cursor: default;
   animation: fadeUp .3s ease both;
 }
 .card-meta {

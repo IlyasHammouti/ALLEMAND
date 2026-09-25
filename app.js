@@ -420,8 +420,6 @@ function renderCard() {
     </div>`;
   renderFoot({ levelsEnabled: flip, action: flip ? null : { id: "show", label: "Afficher la réponse" } });
   document.getElementById("playAudio").onclick = (e) => { e.stopPropagation(); speak(card.audio_text || card.front); };
-  const cd = document.getElementById("cd");
-  if (!flip) cd.onclick = () => { flip = true; renderCard(); };
   const showBtn = document.getElementById("show");
   if (showBtn) showBtn.onclick = () => { flip = true; renderCard(); };
   if (flip) wireAnswerButtons(card.id);
