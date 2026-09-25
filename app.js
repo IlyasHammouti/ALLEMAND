@@ -388,7 +388,7 @@ function renderCard() {
         <div class="back">${esc(card.back)}</div>
         <input type="text" class="writing-input" id="wInput" placeholder="Écris la réponse en allemand" autocomplete="off" autocapitalize="off" spellcheck="false">
         <div class="writing-feedback" id="wFeedback"></div>
-        ${flip ? `<div class="sep"></div><div class="front" style="font-size:20px">${esc(card.front)}</div>${card.phonetic ? `<div class="ph">${esc(card.phonetic)}</div>` : ""}${card.note ? `<div class="note">${esc(card.note)}</div>` : ""}` : ""}
+        ${flip ? `<div class="sep"></div><div class="front" style="font-size:20px">${esc(card.front)}</div>${card.phonetic ? `<div class="ph blurred" title="Cliquer pour révéler la phonétique" onclick="event.stopPropagation(); this.classList.toggle('blurred')">${esc(card.phonetic)}</div>` : ""}${card.note ? `<div class="note">${esc(card.note)}</div>` : ""}` : ""}
       </div>`;
     renderFoot({ levelsEnabled: flip, action: flip ? null : { id: "checkW", label: "Vérifier" } });
     const input = document.getElementById("wInput");
@@ -414,9 +414,9 @@ function renderCard() {
   zone.innerHTML = `
     <div class="card" id="cd">
       ${meta}
-      ${showFrontFirst ? `<div class="front">${esc(card.front)}</div>${card.phonetic ? `<div class="ph">${esc(card.phonetic)}</div>` : ""}` : `<div class="front">🔊 ?</div>`}
+      ${showFrontFirst ? `<div class="front">${esc(card.front)}</div>${card.phonetic ? `<div class="ph blurred" title="Cliquer pour révéler la phonétique" onclick="event.stopPropagation(); this.classList.toggle('blurred')">${esc(card.phonetic)}</div>` : ""}` : `<div class="front">🔊 ?</div>`}
       <button class="audio-btn" id="playAudio" title="Écouter">🔊</button>
-      ${flip ? `<div class="sep"></div><div class="back">${esc(card.back)}</div>${!showFrontFirst ? `<div class="front" style="font-size:20px;margin-top:10px">${esc(card.front)}</div>${card.phonetic ? `<div class="ph">${esc(card.phonetic)}</div>` : ""}` : ""}${card.note ? `<div class="note">${esc(card.note)}</div>` : ""}` : ""}
+      ${flip ? `<div class="sep"></div><div class="back">${esc(card.back)}</div>${!showFrontFirst ? `<div class="front" style="font-size:20px;margin-top:10px">${esc(card.front)}</div>${card.phonetic ? `<div class="ph blurred" title="Cliquer pour révéler la phonétique" onclick="event.stopPropagation(); this.classList.toggle('blurred')">${esc(card.phonetic)}</div>` : ""}` : ""}${card.note ? `<div class="note">${esc(card.note)}</div>` : ""}` : ""}
     </div>`;
   renderFoot({ levelsEnabled: flip, action: flip ? null : { id: "show", label: "Afficher la réponse" } });
   document.getElementById("playAudio").onclick = (e) => { e.stopPropagation(); speak(card.audio_text || card.front); };
